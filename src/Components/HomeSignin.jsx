@@ -5,7 +5,7 @@ const HomeSignin = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate("/signin");
+        navigate("/");
     }
 
     return <div>
