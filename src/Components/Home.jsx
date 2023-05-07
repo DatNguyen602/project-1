@@ -5,7 +5,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate("/signin");
+        navigate("/project-1/signin");
     }
 
     return <div>

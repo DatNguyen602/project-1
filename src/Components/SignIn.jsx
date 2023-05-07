@@ -37,7 +37,7 @@ const SignIn = () => {
             .then((res) => {
                 // alert(res.status);
                 console.log(res);
-                if (!res.data.code) navigate("/homesignin");
+                if (!res.data.code) navigate("/project-1/homesignin");
                 else alert("Login fail!");
             })
             .catch(res => {
