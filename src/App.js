@@ -1,20 +1,19 @@
 import './App.css';
-import Home from './Components/Home';
-import HomeSignin from './Components/HomeSignin';
-import SignIn from './Components/SignIn';
-import { Routes , Route } from 'react-router';
+// import { Routes , Route } from 'react-router';
+import Parent from './Components/Parent';
+// import Child2 from './Components/Child2';
+import store from "./app/store"
+import staticData from "./Components/mock.json"
 
 function App() {
+  const {UserContext} = store;
+
   return (
-    <div className="App">
-      {/* <Home/> */}
-      <Routes>
-        <Route path='project-1/' element={<Home/>}></Route>
-        <Route path='project-1/signin' element={<SignIn/>}></Route>
-        <Route path='project-1/homesignin' element={<HomeSignin/>}></Route>
-        <Route path='*' element={<h1>404 Not Fount</h1>}></Route>
-      </Routes>
-    </div>
+    <UserContext.Provider value={staticData}>
+      <div className="App">
+        <Parent/>
+      </div>
+    </UserContext.Provider>
   );
 }
 
