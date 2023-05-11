@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
 import store from "../app/store.js"
 
@@ -7,6 +7,7 @@ const SignIn = () => {
     const [username,setUsername] = useState({});
     const [checkMail,setCMail] = useState("");
     const navigate = useNavigate();
+    const context = useContext(store.useContext);
     
     const onChange = (e) => {
         setUsername({

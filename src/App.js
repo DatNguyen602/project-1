@@ -9,7 +9,7 @@ function App() {
   const {UserContext} = store;
 
   return (
-    <UserContext.Provider value="">
+    <UserContext.Provider value={{}}>
       <div className="App">
         <Routes>
           <Route path='project-1/' element={<Home/>}></Route>
