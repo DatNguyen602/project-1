@@ -1,5 +1,7 @@
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
 import Cards from "./Cards"
+import store from "../app/store.js"
+
 
 const HomeSignin = () => {
     const navigate = useNavigate();
@@ -7,6 +9,8 @@ const HomeSignin = () => {
     const handleClick = () => {
         navigate("/project-1/");
     }
+
+    console.log(store);
 
     return <div>
         <div className="col-8 container text-center">

@@ -4,7 +4,6 @@ import Content from './Main/Content';
 
 
 const Home = () => {
-
     return <div>
         <Header/>
         <Content/>

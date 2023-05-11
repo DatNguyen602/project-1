@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
+import store from "../app/store.js"
 
 const SignIn = () => {
     const [username,setUsername] = useState({});
@@ -37,7 +38,12 @@ const SignIn = () => {
             .then((res) => {
                 // alert(res.status);
                 console.log(res);
-                if (!res.data.code) navigate("/project-1/homesignin");
+                if (!res.data.code) {
+                    navigate("/project-1/homesignin");
+                    store = {...res.data.acessToken,
+                    ...res.data.refreshToken
+                };
+                }
                 else alert("Login fail!");
             })
             .catch(res => {
