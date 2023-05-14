@@ -1,8 +1,11 @@
-
+import { Outlet } from "react-router-dom/dist/umd/react-router-dom.development";
+import sendme from "../../images/SenMe.png";
 
 const Footer = () => {
 
     return <div>
+        <Outlet/>
+        <div className="home-line"></div>
         <div className="col-8 container text-start">
             <div className="container">
                 <div className="row">
@@ -59,7 +62,7 @@ const Footer = () => {
                     </a>
                     <a className="mb-5 pb-5 mt-5 text-decoration-none text-black" href="#">
                         <div className="circle">
-                            <img src="./SenMe.png" alt="" />
+                            <img src={sendme} alt="" />
                         </div>
                     </a>
                 </div>

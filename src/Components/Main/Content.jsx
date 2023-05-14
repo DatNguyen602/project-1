@@ -1,4 +1,6 @@
-import Cards from "../Cards"
+import Cards from "../../app/Cards";
+import homeImg1 from "../../images/image1 1.png";
+import avatar from "../../images/Avatar.png";
 
 const Content = () => {
 
@@ -6,7 +8,7 @@ const Content = () => {
         <div className="col-8 container text-center">
             <div className="container">
                 <div className="content position-relative text-start my-5 py-5">
-                    <img src="./image1 1.png" alt="Anh" className="content--img col-8 position-absolute" />
+                    <img src={homeImg1} alt="Anh" className="content--img col-8 position-absolute" />
                     <h1 className="fw-700 mb-5 fs-80 col-7 content--h1">Save your data storage here.</h1>
                     <p className="col-5 content--p fs-18">
                     Data Warehouse is a data storage area that has been tested for
@@ -44,7 +46,7 @@ const Content = () => {
                             d-flex align-items-center justify-content-center"></i>
                             <div className="col-10 rounded-3 bg-white">
                                 <div className="row py-5">
-                                    <span className="col-2 ms-5 me-4"><img src="./Avatar.png" alt="" className="" /></span>
+                                    <span className="col-2 ms-5 me-4"><img src={avatar} alt="" className="" /></span>
                                     <span className="col-8 text-start">
                                         <h1 className="fs-4">John Fang</h1>
                                         <a className="text-home text-decoration-none" href="#">wordfaang.com</a>
@@ -56,8 +58,8 @@ const Content = () => {
                             <i className="bi bi-arrow-right col-1 text-white
                             d-flex align-items-center justify-content-center"></i>
                         </div>
-                        <div className="mt-4 text-white">
-                            <i className="bi bi-dot"></i>
+                        <div className="mt-4 d-flex align-items-center justify-content-center text-white">
+                            <i className="bi bi-dot fs-2"></i>
                             <i className="bi bi-dot"></i>
                             <i className="bi bi-dot"></i>
                             <i className="bi bi-dot"></i>
@@ -67,7 +69,6 @@ const Content = () => {
                 </div>
             </div>
         </div>
-        <div className="home-line"></div>
     </div>
 }
 

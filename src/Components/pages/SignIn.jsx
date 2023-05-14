@@ -1,26 +1,33 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom/dist/umd/react-router-dom.development";
-import store from "../app/store.js"
+import store from "../../app/store";
 
 const SignIn = () => {
     const [username,setUsername] = useState({});
     const [checkMail,setCMail] = useState("");
     const navigate = useNavigate();
-    const context = useContext(store.useContext);
+    const {token,handleSetPage} = useContext(store.State);
     
     const onChange = (e) => {
         setUsername({
             [e.target.name] : e.target.value,
         })
     }
+
+    useEffect(() => {
+        // if (token.isPage === "home" && token.accessToken === ""){
+        //     navigate("/project-1/");
+        //     handleSetPage("homelog");
+        // }
+    },[])
     
     const checkEmail = (e) => {
         // const regEmail = /\@.+?\.[a-zA-Z0-9]/ ;
-        if(e.target.value === ""){
-            setCMail("Username is Emty!");
-            return;
-        }
+        // if(e.target.value === ""){
+        //     setCMail("Username is Emty!");
+        //     return;
+        // }
 
         // if(e.target.value.search(regEmail) === -1){
         //     setCMail("Email is invalid!");
@@ -29,7 +36,7 @@ const SignIn = () => {
         // else{
         //     setCMail("");
         // }
-        console.log(username);
+        // console.log(username);
     }
     
     const clickLogin = (e) => {
@@ -38,18 +45,17 @@ const SignIn = () => {
             axios.post("https://test-react.agiletech.vn/auth/login",username)
             .then((res) => {
                 // alert(res.status);
-                console.log(res);
+                // console.log(res);
                 if (!res.data.code) {
-                    navigate("/project-1/homesignin");
-                    store = {...res.data.acessToken,
-                    ...res.data.refreshToken
-                };
+                    handleSetPage("homelog");
+                    token.setItem("accessToken",res.data.accessToken);
+                    token.setItem("refreshToken",res.data.refreshToken);
+                    navigate("/project-1/");
                 }
                 else alert("Login fail!");
             })
             .catch(res => {
                 console.log(res);
-
             })
         }
         else{
@@ -58,13 +64,17 @@ const SignIn = () => {
     }    
 
     return <form action="clickLogin">
-        <div className="container col-12 px-5">
-            <div id="Nav" className="position-fixed">
-                <div className="logo d-flex align-items-end mt-4">
-                    <div></div>
-                    <div></div>
+        <div className="col-8 container text-center">
+            <div className="container">
+                <div className="col-12 py-4 header d-flex justify-content-between align-items-center">
+                    <div className="logo d-flex align-items-end">
+                        <div></div>
+                        <div></div>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div className="container col-12 p-5 my-5">
             <div className="signIn d-flex col-12 flex-column justify-content-center align-items-center">
                 <h1 className="col-lg-2col-12 text-center fw-bold mb-5">Sign In</h1>
                 <label className="col-lg-3 col-12 fs-6 mb-2" htmlFor="email">Username</label>
