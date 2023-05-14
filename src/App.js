@@ -5,10 +5,6 @@ import { Routes , Route } from 'react-router';
 import Header from './Components/Header/Header';
 
 function App() {
-  const token = sessionStorage;
-  token.accessToken || token.setItem("accessToken","");
-  token.refreshToken || token.setItem("refreshToken","");
-
   return (
       <div className="App">
         <Routes>
