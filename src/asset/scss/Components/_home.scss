@@ -10,7 +10,7 @@
 }
 
 .fs-80{
-    font-size: 80px;
+    font-size: 70px;
 }
 .fe-18{
     font-size: 18px;
@@ -27,8 +27,8 @@
 }
 
 .content--img{
-    left: 37%;
-    top: 37%;
+    left: 36%;
+    top: 36%;
 }
 
 
@@ -55,4 +55,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.max-line{
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
