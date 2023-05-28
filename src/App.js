@@ -1,17 +1,16 @@
 import './App.css';
-import { Routes , Route } from 'react-router';
-import store from "./app/store"
+import Counter from './components/Counter';
+import { useSelector } from 'react-redux';
+
 
 function App() {
-  const {UserContext} = store;
+  const {count} = useSelector(state => state.counter)
 
   return (
-    <UserContext.Provider value={{}}>
       <div className="App">
-        <Routes>
-        </Routes>
+        <h1 className='col-12 text-center mt-5'>Count {count}</h1>
+        <Counter/>
       </div>
-    </UserContext.Provider>
   );
 }
 
